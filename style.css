@@ -6,7 +6,7 @@
       color: #222;
       display: flex;
       flex-direction: column;
-      font-family: 'Mitr', sans-serif;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-image: url(imges/Gold.jpg);
       background-size: cover;
       background-position: center;
@@ -16,7 +16,6 @@
 
 
     header {
-      background: rgba(255, 255, 255, 0.9);
       padding: 15px 25px;
       display: flex;
       justify-content: center;
@@ -28,9 +27,11 @@
     }
 
     .logo-logo {
-      font-size: 24px;
+      font-size: 35px;
       font-weight: bold;
-      color: #2980b9;
+      /* color: #2980b9; */
+      color: #1e1e1e;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 
     .menu-toggle {
@@ -48,7 +49,6 @@
     }
 
     .sidebar {
-      /* background: #1877f2; */
       background: rgba(255, 255, 255, 0.0);
       width: 60px;
       transition: width 0.3s ease;
@@ -61,9 +61,6 @@
     .sidebar:hover {
       width: 300px;
       background: rgba(255, 255, 255, 0.6);
-    }
-    .sidebar:hover .logo {
-      transform: rotate(360deg);
     }
 
     .logo-section {
@@ -122,6 +119,7 @@
     body.light-mode  .sidebar ul li:hover {
         background: rgb(8, 184, 333);
         /* background: rgb(212, 173, 66);  */
+        
     }
     
 
@@ -163,10 +161,10 @@
     }
 
     .id-card {
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.6);
       border-radius: 20px;
       width: 330px;
-      height: 500px;
+      height: 550px;
       padding: 60px;
       text-align: center;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -199,19 +197,21 @@
       object-fit: cover;
       border-radius: 50%;
       margin-bottom: 10px;
-      border: 7px solid #3498db;
+      /* border: 7px solid #3498db; */
+      border: 9px solid rgb(212, 173, 66);
     }
 
     .name {
       font-weight: bold;
-      font-size: 22px;
+      font-size: 25px;
       margin-top: 5px;
     }
 
     .info {
-      font-size: 17px;
+      font-size: 20px;
       line-height: 1.5;
       margin-top: 5px;
+      font-weight: bold;
     }
 
     .qr-code {
@@ -261,37 +261,67 @@
       background: #1e1e1e;
       color: #f0f0f0;
     }
-
-
-
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        background: #0f0f0f;
-        padding: 10px;
-        position: absolute;
-        right: 10px;
-        top: 70px;
-        border-radius: 10px;
-        display: none;
-      }
-      nav.active {
-        display: flex;
-      }
-      .menu-toggle {
-        display: block;
+    body.light-mode .sidebar li{
+      color: #f0f0f0;
     }
-      div.logo {
-      display: flex;
-      }
+    body.light-mode .sidebar:hover li{
+      color: rgb(14, 14, 14);
     }
 
+    /* 500px */
     @media (max-width: 500px) {
-      header {
-        position: sticky;
+      .menu-toggle { display: block; }
+      .sidebar {
+        position: fixed;
+        left: -200px;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+        width: 300px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
       }
-      .menu-toggle {
-        position: sticky;
+      .sidebar.active {
+        left: 0;
+        transform: translateX(0);
+        background: rgba(255, 255, 255, 0.6);
+      }
+      .sidebar:hover {
+        width: 300px;
+      }
+      .container {
+        flex-direction: column;
+      }
+      .sidebar:hover ~ .content {
+        margin-left: 0;
+      }
     }
+
+/* 768px */
+    @media (max-width: 768px) {
+    .menu-toggle { display: block;}
+    .sidebar {
+        position: fixed;
+        left: -200px;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+        width: 260px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    .sidebar.active {
+    left: 0;
+    transform: translateX(0);
+    background: rgba(255, 255, 255, 0.6);
+  }
+    .sidebar:hover {
+        width: 250px;
+      }
+      .container {
+        flex-direction: column;
+      }
+      .sidebar:hover ~ .content {
+        margin-left: 0;
+      }
     }
