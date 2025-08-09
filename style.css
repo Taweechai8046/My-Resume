@@ -49,8 +49,8 @@
     }
 
     .sidebar {
-      background: rgba(255, 255, 255, 0.0);
-      width: 60px;
+      background: rgba(255, 255, 255, 0.7);
+      width: 66px;
       transition: width 0.3s ease;
       overflow-x: hidden;
       display: flex;
@@ -60,7 +60,7 @@
 
     .sidebar:hover {
       width: 300px;
-      background: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.8);
     }
 
     .logo-section {
@@ -161,8 +161,8 @@
     }
 
     .id-card {
-      background: rgba(255, 255, 255, 0.6);
-      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 150px;
       width: 330px;
       height: 550px;
       padding: 60px;
