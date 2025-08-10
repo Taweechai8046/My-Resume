@@ -127,4 +127,5 @@
       .sidebar.active { transform: translateX(0); }
       .sidebar:hover { width: 260px; }
       .container { flex-direction: column; }
+      .body {background-attachment: fixed;}
     }
