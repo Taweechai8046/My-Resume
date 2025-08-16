@@ -135,14 +135,14 @@
 }
 
 /* ===== Dark / Light Mode ===== */
-body.dark-mode { background: #1e1e1e; color: #f0f0f0; }
+/* body.dark-mode { background: #1e1e1e; color: #f0f0f0; } */
 body.dark-mode .id-card { background: rgba(34,34,34,0.9); color: white; }
-body.dark-mode .sidebar ul li { color: #f0f0f0; }
-body.dark-mode .sidebar ul li:hover { background: #08b8e9; color: white; }
+body.dark-mode .sidebar ul li { color: #090909; }
+body.dark-mode .sidebar ul li:hover { background: #08b8e9; color: rgb(245, 5, 5); }
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .menu-toggle { display: block; }
+  .menu-toggle { display: block;  background-color: #d4ad42; border-radius: 5px;}
   .sidebar {
     flex-direction: column;
     align-items: flex-start;
@@ -176,7 +176,7 @@ body.dark-mode .sidebar ul li:hover { background: #08b8e9; color: white; }
       <div class="logo-section">
         <img src="icons/Logo.jpg" alt="logo" class="logo">
         <span class="username">ห้างทองใจดี-สาขาพระอินทร์ราชา</span>
-      </div>
+      </div><br>
       <ul>
         <li onclick="navigateTo('xauusd.html')"><i class='bx bxl-bitcoin'></i><span>Gold spot view</span></li>
         <li onclick="navigateTo('https://web.facebook.com/Jaideegoldsmith')"><i class='bx bxl-facebook-circle'></i><span>Facebook</span></li>

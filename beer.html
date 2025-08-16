@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beer-MySite</title>
+  <link rel="shortcut icon" href="images/icon1.png" type="image/x-icon">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifesttt.json">
+  <meta name="theme-color" content="#1877f2" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background: #f0f0f0;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Mitr', sans-serif;
+      background-image: url(images/Gold1.jpeg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo-logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2980b9;
+    }
+
+    .menu-toggle {
+      display: none;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 24px;
+      background: #1877f2;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1100;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      flex: 1;
+    }
+
+    .sidebar {
+      /* background: #1877f2; */
+      background: rgba(255, 255, 255, 0.0);
+      width: 60px;
+      transition: width 0.3s ease;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .sidebar:hover {
+      width: 300px;
+      background: rgba(255, 255, 255, 0.6);
+    }
+    .sidebar:hover .logo {
+      transform: rotate(360deg);
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .username {
+      opacity: 0;
+      white-space: nowrap;
+      transition: opacity 0.4s ease;
+      /* color: #fff; */
+      color: black;
+      font-size: 20px;
+      
+    }
+
+    .sidebar:hover .username,
+    .sidebar.active .username {
+      opacity: 1;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    .sidebar ul li {
+      display: flex;
+      align-items: center;
+      padding: 20px 20px;
+      /* color: #fff; */
+      color: black;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .sidebar ul li:hover {
+      background: rgb(212, 173, 66);
+      /* background: rgb(8, 184, 253); */
+    }
+    body.light-mode  .sidebar ul li:hover {
+        background: rgb(8, 184, 333);
+        /* background: rgb(212, 173, 66);  */
+    }
+    
+
+    .sidebar ul li i {
+      font-size: 28px;
+      margin-right: 15px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .sidebar ul li span {
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      font-size: 20px;
+    }
+
+    .sidebar:hover ul li span,
+    .sidebar.active ul li span {
+      opacity: 1;
+    }
+
+    .content {
+      flex: 1;
+      padding: 30px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .sidebar:hover ~ .content {
+      margin-left: 200px;
+    }
+
+    @media (max-width: 820px) {
+      .menu-toggle { display: block; }
+      .sidebar {
+        position: fixed;
+        left: -200px;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+        width: 300px;
+      }
+      .sidebar.active {
+        left: 0;
+      }
+      .sidebar:hover {
+        width: 300px;
+      }
+      .container {
+        flex-direction: column;
+      }
+      .sidebar:hover ~ .content {
+        margin-left: 0;
+      }
+    }
+
+    body.light-mode {
+      background: #fff;
+      color: #222;
+      background: #000;
+    }
+    body.light-mode .sidebar {
+        /* background: #000;
+        background: #1877f2; */
+        background: rgba(12, 12, 12, 0.6);
+    }
+    body.light-mode .sidebar ul li {
+      /* color: #000; */
+      color: #f0f0f0;
+    }
+    body.light-mode .username {
+      /* color: #000; */
+      color: #f0f0f0;
+    }
+    body.light-mode .id-card {
+      /* color: #000; */
+      color: #f0f0f0;
+      background: rgba(7, 7, 7, 0.10);
+    }
+    body.light-mode .bio {
+      /* color: #000; */
+      color: #f0f0f0;
+      background: rgba(7, 7, 7, 0.10);
+    }
+    body.light-mode .logo-logo {
+      /* color: #000; */
+      color: #050505;
+    }
+    body.light-mode .song-title {
+      /* color: #000; */
+      color: #06c5ff;
+    }
+    
+    /* ID card */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      padding: 30px;
+    }
+    .card {
+      font-size: 20px;
+    }
+
+    .id-card {
+      width: 300px;
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s;
+      color: #000;
+    }
+
+    .id-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .id-header {
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, rgb(212, 173, 66), transparent);
+      color: #333;
+      font-size: 1.2em;
+      padding: 10px 0;
+      border-radius: 15px 15px 0 0;
+      font-weight: bold;
+    }
+
+    .id-card video {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 7px solid rgb(212, 173, 66);
+      margin-bottom: 10px;
+    }
+
+    .name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .info {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .qr-code {
+      margin-top: 10px;
+      width: 50px;
+      height: 50px;
+    }
+
+    .profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 7px solid rgb(212, 173, 66);    
+    }
+    /* Audio 3D */
+    .song-title {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 8px;
+    }
+    .card-container h6 {
+      color: #383535;
+    }
+    body.light-mode h6 {
+      /* color: #000; */
+      color: #b4b1b1;
+    }
+    audio {
+      margin-top: 15px;
+      width: 100%;
+    }
+    /* Equalizer bars */
+    .equalizer {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      height: 20px;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 5px #00f);
+    }
+
+    .bar {
+      width: 4px;
+      height: 100%;
+      background: #0077ff;
+      animation: equalizer 1s infinite ease-in-out;
+      border-radius: 2px;
+    }
+
+    .bar:nth-child(1) { animation-delay: 0s; }
+    .bar:nth-child(2) { animation-delay: 0.2s; }
+    .bar:nth-child(3) { animation-delay: 0.4s; }
+    .bar:nth-child(4) { animation-delay: 0.6s; }
+    .bar:nth-child(5) { animation-delay: 0.8s; }
+
+    @keyframes equalizer {
+      0%, 100% { transform: scaleY(0.4); }
+      50% { transform: scaleY(1.2); }
+    }
+
+    .equalizer.paused .bar {
+      animation-play-state: paused;
+    }
+
+    /* Glow effect */
+    .glow {
+      animation: glowEffect 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowEffect {
+      from {
+        box-shadow: 0 0 5px #0077ff, 0 0 10px #00f;
+      }
+      to {
+        box-shadow: 0 0 15px #0077ff, 0 0 25px #00f;
+      }
+    }
+
+
+    /* bio-video */
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+    }
+    .bio {
+      /* flex: 1; */
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .bio:hover {
+      transform: translateY(-10px);
+    }
+    .bio img {
+      width: auto;
+      height: auto;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 2px solid whitesmoke;
+      filter: saturate(100%);
+      margin: 5px;
+      transition: 0.4s ease;
+      cursor: pointer;
+    }
+    .bio video {
+      width: 220px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 50px;
+      border: 2px solid whitesmoke;
+      filter: saturate(100%);
+      margin: 5px;
+      transition: 0.4s ease;
+      cursor: pointer;
+    }
+    /* .bio img:hover, .bio video:hover {
+      filter: saturate(100%);
+      width: 65%;
+      height: 550px;
+    } */
+    
+    /* ป๊อปอัป */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background: white;
+      margin: 10% auto;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    .modal img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .close-btn {
+      margin-top: 15px;
+      background: #f44336;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background-color: #d32f2f;
+    }
+
+    @media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  .sidebar.active {
+    transform: translateX(0);
+  }
+}
+/* 820px */
+    @media (max-width: 820px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  .sidebar.active {
+    transform: translateX(0);
+    background: rgba(255, 255, 255, 0.9);
+  }
+  .bio img:hover, .bio video:hover {
+      filter: saturate(100%);
+      width: 400px;
+      height: 550px;
+    }
+    .bio img, .bio video {
+      filter: saturate(30%);
+      width: 400px;
+      height: 550px;
+    }  
+}
+
+/* 820px */
+@media (max-width: 820px) {
+    .bio img:hover, .bio video:hover {
+      filter: saturate(100%);
+      width: 400px;
+      height: 550px;
+    }
+    .bio img, .bio video {
+      filter: saturate(100%);
+      width: 400px;
+      height: 550px;
+    }
+}
+/* 500px */
+@media (max-width: 500px) {
+    .bio img, .bio video {
+      filter: saturate(100%);
+      width: 400px;
+      height: 550px;
+      flex: 1;
+    }
+    .bio {
+      background: rgba(255, 255, 255, 0.6);
+      text-align: center;
+      box-sizing: content-box;
+      width: auto;
+    }
+    .id-card {
+      box-sizing: content-box;
+      width: auto;
+    }
+    .menu-toggle {
+    position :fixed;
+    }
+  }
+
+</style>
+
+</head>
+<body>
+  
+    <header>
+      <div class="logo-logo">Beer-MySite</div>
+  </header>
+  <div class="menu-toggle" onclick="toggleMobileSidebar()">☰</div>
+  <div class="container">
+  <div class="sidebar" id="sidebar">
+    <div class="logo-section">
+      <img src="icons/Logo.jpg" alt="logo" class="logo">
+      <span class="username">Ms.Arissara T.</span>
+    </div>
+    <ul>
+      <!-- <li onclick="navigateTo('index.html')"><i class='bx bxs-home-heart' ></i></i><span>Home</span></li> -->
+      <li onclick="navigateTo('index.html')"><i class='bx bxs-id-card' ></i></i></i><span>ID card</span></li>
+      <li onclick="navigateTo('xauusd.html')"><i class='bx bxl-bitcoin' ></i></i><span>Gold spot view</span></li>
+      <li onclick="navigateTo('shop.html')"><i class='bx bxl-shopify'></i></i><span>Shop</span></li>
+      <li onclick="navigateTo('https://web.facebook.com/arissara.thongchea')"><i class='bx bxl-facebook-circle' ></i></i><span>facebook</span></li>
+      <li onclick="navigateTo('https://www.instagram.com/arissara_th?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==')"><i class='bx bxl-instagram' ></i></i><span>instagram</span></li>
+      <li onclick="navigateTo('https://www.tiktok.com/@arissarathongchae?is_from_webapp=1&sender_device=pc')"><i class='bx bxl-tiktok' ></i></i><span>tiktok</span></li>
+      <li onclick="showQR()"><i class='bx bx-qr-scan'></i></i><span>Qr-code</span></li>
+      <li onclick="navigateTo('about.html')"><i class='bx bx-error-alt' ></i></i><span>About</span></li>
+      <li onclick="toggleTheme()"><i class='bx bx-sun' ></i></i><span>Theme</span></li>
+      <!-- <li onclick="navigateTo('notes.html')"><i class='bx bx-save' ></i></i><span>Note</span></li> -->
+      <!-- <li onclick="navigateTo('signmail.html')"><i class='bx bx-envelope'></i></i><span>E-mail</span></li> -->
+      <!-- <li onclick="navigateTo('login.html')"><i class='bx bxs-lock-open-alt' ></i></i><span>Logout</span></li> -->
+      <!-- <li onclick="navigateTo('city.html')"><i class='bx bxs-location-plus' ></i></i><span>Phrae city</span></li> -->
+      
+    </ul>
+  </div>
+
+  <div class="card-container">
+    <!-- Card 1 -->
+    <div class="id-card">
+      <div class="id-header">Arissara T.</div>
+      <img src="images/beer/Beer.jpg" alt="Profile" class="profile-img">
+      <div class="card">
+        <span>
+          <i class='bx bxs-camera'></i>
+        </span>
+      </div>
+      <div class="name">Ms. Arissara T.</div>
+      <div class="info">
+        Position : นิ่งเป็นหลับ<br>
+        Employee ID : zzz999 <br>
+        Department : ขยับเป็นแดก
+      </div>
+      <img src="imge/im ok.jpeg" alt="QR Code" class="qr-code">
+      
+      <!-- Audio player -->
+      <audio id="audio" controls>
+        <source src="music/Im OK __ Not OK.mp3" type="audio/mpeg">
+        เบราว์เซอร์ของคุณไม่รองรับการเล่นเพลง
+      </audio>
+      <!-- Equalizer effect -->
+      <div class="equalizer paused" id="equalizer">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <!-- song-title -->
+      <div class="song-title">🎵 music : Im OK __ Not OK </div>
+      <h6>ฉันคิดถึงเธอมาก
+        อยากให้เธอรู้คิดถึงมาก ๆ
+        อยากระบาย
+        อยากให้รับฟัง
+        เรื่องทุก ๆ อย่างที่อยู่ข้างใน
+        ฉันคิดถึงเธอมาก แต่ไม่อยากทำให้เธอหวั่นไหว
+        ได้แต่กลั้นหายใจ และตอบเธอไป
+        ทางนี้ฉันโอเคเลย</h6>
+    </div>
+
+      <div class="bio">
+      <h2>กิจกรรมแจกของรางวัล</h2>
+      <p></p>
+      <p></p>
+      <br>
+      <!-- imge -->
+      <img src="images/g3.jpg" alt="">
+      <!-- <img src="images/Map1.jpg" alt="">
+      <img src="images/T1.jpg" alt=""> -->
+      <!-- <img src="imge/imge004.jpg" alt="">
+      <img src="imge/imge005.jpg" alt=""> -->
+      
+    </div>
+  </div>
+
+  <!-- เสียงคลิก -->
+  <audio id="clickSound">
+    <source src="audio/click.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- กล่องแสดง QR Code -->
+<div id="qrModal" class="modal">
+  <div class="modal-content">
+    <h3>สแกน QR Code</h3>
+    <img src="AE614DA3-87BF-47E1-8AB8-9442BB2B34B2.jpeg" alt="QR Code">
+    <br>
+    <button class="close-btn" onclick="closeQR()">ปิด</button>
+  </div>
+</div>
+
+  <!-- Script -->
+  <script>
+    function toggleMobileSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+      localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
+      playClickSound();
+    }
+    function playClickSound() {
+      const audio = document.getElementById("clickSound");
+      if (audio) audio.play();
+    }
+    function navigateTo(page) {
+      playClickSound();
+      window.location.href = page;
+    }
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+    window.addEventListener('load', () => {
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+      }
+    });
+    
+  </script>
+    
+    </script>
+    <!-- Script audio 3D -->
+    <script>
+      const audio = document.getElementById('audio');
+      const equalizer = document.getElementById('equalizer');
+  
+      audio.addEventListener('play', () => {
+        equalizer.classList.remove('paused');
+      });
+  
+      audio.addEventListener('pause', () => {
+        equalizer.classList.add('paused');
+      });
+  
+      audio.addEventListener('ended', () => {
+        equalizer.classList.add('paused');
+      });
+    </script>
+
+    <!-- Qr code -->
+    <script>
+      function showQR() {
+        document.getElementById('qrModal').style.display = 'block';
+      }
+    
+      function closeQR() {
+        document.getElementById('qrModal').style.display = 'none';
+      }
+    
+      // ปิดเมื่อคลิกพื้นที่นอกกล่อง
+      window.onclick = function(event) {
+        const modal = document.getElementById('qrModal');
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+</body>
+</html>
