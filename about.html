@@ -13,11 +13,14 @@
       background: url(imges/Gold.jpg) center/cover fixed;
     }
     .topbar {
-      background-color: #3a3a3a;
+      background: rgba(250, 0, 0, 0.4);
     }
+    .topbar :hover{background-color: rgb(247, 13, 5);}
     .nav-link {
       @apply text-white font-bold hover:text-black transition;
     }
+    .nav-link {color: #fffdf5;}
+    .nav-link:hover {color: rgb(5, 5, 5);}
   </style>
 </head>
 <body>
@@ -32,7 +35,6 @@
         <!-- Menu Desktop -->
         <nav class="hidden md:flex space-x-6">
           <a href="index.html" class="nav-link">หน้าแรก</a>
-          <a href="about.html" class="nav-link">เกี่ยวกับเรา</a>
           <a href="#" class="nav-link">สินค้า</a>
           <a href="beer.html" class="nav-link">ติดต่อ</a>
         </nav>
