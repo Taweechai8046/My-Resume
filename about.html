@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เกี่ยวกับเรา - ห้างทองใจดี</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+      background-color: #fffdf5;
+      background: url(imges/Gold.jpg) center/cover fixed;
+    }
+    .topbar {
+      background-color: #3a3a3a;
+    }
+    .nav-link {
+      @apply text-white font-bold hover:text-black transition;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <header class="topbar sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <h1 class="text-xl font-bold text-white">ห้างทองใจดี-สาขาพระอินทร์ราชา</h1>
+
+        <!-- Menu Desktop -->
+        <nav class="hidden md:flex space-x-6">
+          <a href="index.html" class="nav-link">หน้าแรก</a>
+          <a href="about.html" class="nav-link">เกี่ยวกับเรา</a>
+          <a href="#" class="nav-link">สินค้า</a>
+          <a href="beer.html" class="nav-link">ติดต่อ</a>
+        </nav>
+
+        <!-- Hamburger Mobile -->
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-white focus:outline-none">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#d4ad42] px-4 py-3 space-y-2">
+      <a href="index.html" class="block nav-link">หน้าแรก</a>
+      <a href="about.html" class="block nav-link">เกี่ยวกับเรา</a>
+      <a href="#" class="block nav-link">สินค้า</a>
+      <a href="ิbeer.html" class="block nav-link">ติดต่อ</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-6 py-8">
+    <!-- <h1 class="text-3xl font-bold text-yellow-700 mb-6">เกี่ยวกับเรา (About Us)</h1> -->
+
+    <!-- Thai -->
+    <section class="bg-white shadow-md rounded-2xl p-6 mb-8">
+      <h2 class="text-2xl font-bold text-yellow-600 mb-4">ห้างทองใจดี – เครื่องประดับทองคำแท้เยาวราช</h2>
+      <p class="mb-3">ห้างทองใจดี ก่อตั้งขึ้นด้วยความตั้งใจที่จะส่งมอบ <b>เครื่องประดับทองคำแท้คุณภาพสูง</b> จากเยาวราชสู่ลูกค้าทุกคน เราใส่ใจในทุกรายละเอียด ตั้งแต่วัสดุทองคำที่ได้มาตรฐาน ไปจนถึงงานฝีมือที่ประณีต เพื่อให้ทุกชิ้นงานเป็นมากกว่าทรัพย์สิน แต่ยังเป็น <b>สัญลักษณ์แห่งความมั่งคั่งและความโชคดี</b></p>
+      <ul class="list-disc pl-6 mb-4">
+        <li>ทองคำแท้ 96.5% ได้รับการรับรองมาตรฐาน</li>
+        <li>ราคายุติธรรม โปร่งใส อ้างอิงตามราคาทองประจำวัน</li>
+        <li>บริการจริงใจ ดูแลลูกค้าเสมือนคนในครอบครัว</li>
+        <li>📌มีใบรับประกันสินค้าทุกชิ้น</li>
+        <li>📌น้ำหนักตามมาตรฐานทุกชิ้น</li>
+        <li>📌มีบริการออมทองขั้นต่ำเพียง 100 บาท</li>
+        <li>📌ไม่มีดอกเบี้ย</li>
+        <li>โปรโมชั่นพิเศษ และบริการผ่อนทองเพื่อให้ทุกคนเข้าถึงได้</li>
+      </ul>
+      <p><b>สถานที่ตั้ง:</b> ใจกลางตลาด [ใส่ที่อยู่จริง/Google Map]</p>
+      <p><b>เวลาเปิด–ปิด:</b> [เวลาเปิด–ปิด]</p>
+      <p><b>ติดต่อ:</b> โทร [เบอร์โทร] / Line / Facebook</p>
+    </section>
+
+    <!-- English -->
+    <!-- <section class="bg-white shadow-md rounded-2xl p-6">
+      <h2 class="text-2xl font-bold text-yellow-600 mb-4">🇬🇧 Jaidee Goldsmith – Authentic Yaowarat Gold Jewelry</h2>
+      <p class="mb-3">“Honesty, Transparency, Fair Price”</p>
+      <p class="mb-3">
+        Jaidee Goldsmith was founded with the commitment to deliver <b>high-quality authentic gold jewelry</b>
+        from Yaowarat to every customer, with 96.5% purity and delicate craftsmanship.
+      </p>
+      <p class="mb-3">We aim to be a trusted gold shop where customers feel <b>valued like family</b>.</p>
+    </section> -->
+  </main>
+
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
