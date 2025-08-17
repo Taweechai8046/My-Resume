@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Beer-MySite</title>
-  <link rel="shortcut icon" href="images/icon1.png" type="image/x-icon">
+  <link rel="shortcut icon" href="icons/Logo.jpg" type="image/x-icon">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
   <link rel="manifest" href="manifesttt.json">
@@ -50,7 +50,7 @@
       display: none;
       position: absolute;
       top: 15px;
-      left: 15px;
+      right: 15px;
       font-size: 24px;
       background: #1877f2;
       color: white;
@@ -68,7 +68,7 @@
 
     .sidebar {
       /* background: #1877f2; */
-      background: rgba(255, 255, 255, 0.0);
+      background: rgba(255, 255, 255, 0.2);
       width: 60px;
       transition: width 0.3s ease;
       overflow-x: hidden;
@@ -191,8 +191,9 @@
       }
     }
 
-    body.light-mode {
-      color: #222;
+    body.light-mode .id-header1{
+      color: #050505;
+      font-size: 30px;
       /* background: #000; */
     }
     body.light-mode .sidebar {
@@ -263,6 +264,16 @@
       border-radius: 15px 15px 0 0;
       font-weight: bold;
     }
+    .id-header1 {
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, rgb(212, 173, 66), transparent);
+      color: #333;
+      font-size: 33px;
+      padding: 10px 0;
+      border-radius: 15px 15px 0 0;
+      font-weight: bold;
+      text-align: center;
+    }
 
     .id-card video {
       width: 200px;
@@ -286,8 +297,8 @@
 
     .qr-code {
       margin-top: 10px;
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
     }
 
     .profile-img {
@@ -516,7 +527,7 @@
       width: auto;
     }
     .menu-toggle {
-    position :fixed;
+    position :fixed; justify-content:  right;
     }
   }
 
@@ -526,14 +537,14 @@
 <body>
   
     <header>
-      <div class="logo-logo">Beer-MySite</div>
+      <div class="logo-logo">Jaidee Gold smith</div>
   </header>
   <div class="menu-toggle" onclick="toggleMobileSidebar()">☰</div>
   <div class="container">
   <div class="sidebar" id="sidebar">
     <div class="logo-section">
       <img src="icons/Logo.jpg" alt="logo" class="logo">
-      <span class="username">Ms.Arissara T.</span>
+      <span class="username">Jaidee Gold</span>
     </div>
     <ul>
       <!-- <li onclick="navigateTo('index.html')"><i class='bx bxs-home-heart' ></i></i><span>Home</span></li> -->
@@ -566,11 +577,11 @@
       </div>
       <div class="name">Ms. Arissara T.</div>
       <div class="info">
-        Position : นิ่งเป็นหลับ<br>
-        Employee ID : zzz999 <br>
-        Department : ขยับเป็นแดก
+        Position : Gold Shop Mgr.<br>
+        Employee ID : spotgold <br>
+        Department : Sales Division
       </div>
-      <img src="imge/im ok.jpeg" alt="QR Code" class="qr-code">
+      <img src="images/Qr-LineDair.jpg" alt="QR Code" class="qr-code">
       
       <!-- Audio player -->
       <audio id="audio" controls>
@@ -598,7 +609,8 @@
     </div>
 
       <div class="bio">
-      <h2>กิจกรรมแจกของรางวัล</h2>
+      <div class="id-header1">กิจกรรมแจกของรางวัล</div>
+      <!-- <h2>กิจกรรมแจกของรางวัล</h2> -->
       <p></p>
       <p></p>
       <br>
