@@ -200,13 +200,7 @@
       <div id="tvchart"></div>
     </div>
 
-    <!-- ราคาทองคำไทย -->
-    <div class="thai-price" id="thaiPriceBox">
-      <h2>ราคาทองคำในประเทศไทย (จำลอง)</h2>
-      <p>🔹 ทองคำแท่ง: <span id="barPrice">--</span> บาท</p>
-      <p>🔸 ทองรูปพรรณ: <span id="ornamentPrice">--</span> บาท</p>
-      <p>⏱ อัปเดตล่าสุด: <span id="updatedAt">--</span></p>
-    </div>
+
 
     <footer>
       © 2025 เว็บไซต์ราคาทองคำ | ข้อมูลกราฟจาก TradingView
@@ -243,17 +237,6 @@
     }
 
     createChart(); // สร้างกราฟเริ่มต้น
-
-    // จำลองราคาทองไทย (แทนด้วย API จริงได้ในอนาคต)
-    function fetchThaiGoldPrice() {
-      const barPrice = (52200 + Math.random() * 200).toFixed(2);
-      const ornamentPrice = (53000 + Math.random() * 200).toFixed(2);
-      const now = new Date().toLocaleTimeString('th-TH');
-
-      document.getElementById('barPrice').textContent = barPrice;
-      document.getElementById('ornamentPrice').textContent = ornamentPrice;
-      document.getElementById('updatedAt').textContent = now;
-    }
 
     fetchThaiGoldPrice();
     setInterval(fetchThaiGoldPrice, 60000); // ทุก 1 นาที
